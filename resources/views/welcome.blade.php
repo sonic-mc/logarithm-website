@@ -1964,7 +1964,7 @@
                     <div style="font-size: 2rem; margin-bottom: 1rem;">
                         <i class="fas fa-code fa-spin"></i>
                     </div>
-                    <p>Loading Amazing Content...</p>
+                    <p>Loading.....</p>
                 </div>
             `;
             document.body.appendChild(preloader);
