@@ -38,61 +38,76 @@
         }
 
         /* Top Bar */
-        .top-bar {
-            background: var(--dark);
-            padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(45, 212, 191, 0.1);
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
+.top-bar {
+    background: var(--dark);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
 
-        .top-bar-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.top-bar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .top-bar-info {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            color: var(--gray);
-        }
+.top-bar-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    color: var(--gray);
+}
 
-        .top-bar-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+.top-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-        .top-bar-social {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+.top-bar-social {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-        .social-icon {
-            width: 32px;
-            height: 32px;
-            background: rgba(45, 212, 191, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
+.social-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(45, 212, 191, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
 
-        .social-icon:hover {
-            background: var(--primary);
-            color: var(--dark);
-            transform: translateY(-2px);
-        }
+.social-icon:hover {
+    background: var(--primary);
+    color: var(--dark);
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .top-bar-info .top-bar-item {
+        display: none; /* Hide all info items by default */
+    }
+
+    .top-bar-info .top-bar-item:first-child {
+        display: flex; /* Show only operating hours */
+    }
+
+    .top-bar-container {
+        padding: 0 1rem;
+    }
+}
 
         /* Navigation */
         nav {
