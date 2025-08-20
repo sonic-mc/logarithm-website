@@ -1094,10 +1094,10 @@
           <i class="far fa-clock"></i> Open Hours: Mon - Sat - 8:00 - 17:00
         </div>
         <div class="top-bar-item">
-          <i class="fas fa-phone"></i> +1 (305) 1234-5678
+          <i class="fas fa-phone"></i> +263 719 288 500
         </div>
         <div class="top-bar-item">
-          <i class="fas fa-envelope"></i> logatech@gmail.com
+          <i class="fas fa-envelope"></i> info@logatech.co.zw
         </div>
       </div>
       <div class="top-bar-social">
@@ -1393,8 +1393,8 @@
                     <div class="team-avatar">
                         <i class="fas fa-user"></i>
                     </div>
-                    <h3>Takaedza Hakunavanhu</h3>
-                    <div class="role">CEO & Founder</div>
+                    <h3>Flavian T Machimbirike</h3>
+                    <div class="role">Managing Director</div>
                     <p>Leading innovation in Zimbabwe's tech industry with over a decade of experience in software development and business transformation.</p>
                     <div class="team-social">
                         <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
@@ -1406,7 +1406,7 @@
                     <div class="team-avatar">
                         <i class="fas fa-user"></i>
                     </div>
-                    <h3>John Smith</h3>
+                    <h3>Takaedza Hakunavanhu</h3>
                     <div class="role">Chief Technology Officer</div>
                     <p>Expert in system architecture and integration services, specializing in creating scalable solutions for enterprise clients across Southern Africa.</p>
                     <div class="team-social">
@@ -1419,7 +1419,7 @@
                     <div class="team-avatar">
                         <i class="fas fa-user"></i>
                     </div>
-                    <h3>Maria Lopez</h3>
+                    <h3>Marvelous T Chimusoro</h3>
                     <div class="role">Lead Developer</div>
                     <p>Full-stack developer with expertise in modern frameworks and technologies, passionate about creating user-centric applications that drive business growth.</p>
                     <div class="team-social">
@@ -1432,9 +1432,9 @@
                     <div class="team-avatar">
                         <i class="fas fa-user"></i>
                     </div>
-                    <h3>David Khumalo</h3>
-                    <div class="role">DevOps Engineer</div>
-                    <p>Specialist in deployment automation and infrastructure management, ensuring our solutions are reliable, scalable, and performant in production environments.</p>
+                    <h3>Joshua T Muyengwa</h3>
+                    <div class="role">Mobile Developer</div>
+                    <p>Specialist in mobile apps development and infrastructure management, ensuring our solutions are reliable, scalable, and performant in production environments.</p>
                     <div class="team-social">
                         <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
@@ -1455,7 +1455,7 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-text">takaedza.hakunavanhu@logarithmcorporation.org</div>
+                            <div class="contact-text">info@logatech.co.zw</div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-phone"></i></div>
