@@ -59,7 +59,7 @@
     display: flex;
     align-items: center;
     gap: 2rem;
-    color: var(--gray);
+    color: var(--light);
 }
 
 .top-bar-item {
@@ -1003,7 +1003,7 @@
         }
 
         .footer-bottom p {
-            color: var(--gray);
+            color: var(--gray-light);
             margin-bottom: 1rem;
         }
 
@@ -1488,22 +1488,74 @@
                 </div>
                 <div class="contact-form">
                     <h3>Send us a Message</h3>
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="fullname" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" name="subject" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" required></textarea>
+                            <textarea name="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                     </form>
+                    <p id="formResponse" style="margin-top:10px;"></p>
                 </div>
+                
+                <script>
+                document.getElementById('contactForm').addEventListener('submit', async function(e){
+                    e.preventDefault();
+                
+                    const fullname = this.fullname.value;
+                    const email = this.email.value;
+                    const subject = this.subject.value;
+                    const message = this.message.value;
+                
+                    const payload = {
+                        emails: [
+                            {
+                                receipient: {
+                                    fullname: fullname,
+                                    email: "info@logatech.co.zw"
+                                },
+                                subject: subject,
+                                contentType: "text/plain",
+                                bodyText: `From: ${fullname} <${email}>\n\n${message}`
+                            }
+                        ]
+                    };
+                
+                    try {
+                        const response = await fetch('http://167.86.88.166:9104/notification-service/emails/send', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(payload)
+                        });
+                
+                        const data = await response.json();
+                
+                        if (response.ok && data.status === 200) {
+                            document.getElementById('formResponse').textContent = "Thank you! Your message has been sent.";
+                            document.getElementById('formResponse').style.color = 'green';
+                            this.reset();
+                        } else {
+                            document.getElementById('formResponse').textContent = "Oops! Something went wrong. Try again.";
+                            document.getElementById('formResponse').style.color = 'red';
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        document.getElementById('formResponse').textContent = "Error sending message. Please try again later.";
+                        document.getElementById('formResponse').style.color = 'red';
+                    }
+                });
+                </script>
+                
             </div>
         </div>
     </section>
@@ -1549,7 +1601,12 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Logarithm Corporation Private Limited. All rights reserved.</p>
+            <p>&copy; <span id="currentYear"></span> Logarithm Corporation Private Limited. All rights reserved.</p>
+
+            <script>
+              document.getElementById('currentYear').textContent = new Date().getFullYear();
+            </script>
+            
             <div class="footer-quote">
                 "At least 40% of all businesses will die in the next 10 years… if they don't figure out how to change their entire company to accommodate new technologies"
             </div>
@@ -1645,32 +1702,32 @@
         }
 
         // Form submission
-        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+        //     e.preventDefault();
             
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
+        //     const submitBtn = this.querySelector('button[type="submit"]');
+        //     const originalText = submitBtn.textContent;
             
-            // Show loading state
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+        //     // Show loading state
+        //     submitBtn.textContent = 'Sending...';
+        //     submitBtn.disabled = true;
             
-            // Simulate form submission
-            setTimeout(() => {
-                submitBtn.textContent = 'Message Sent!';
-                submitBtn.style.background = 'var(--success)';
+        //     // Simulate form submission
+        //     setTimeout(() => {
+        //         submitBtn.textContent = 'Message Sent!';
+        //         submitBtn.style.background = 'var(--success)';
                 
-                // Reset form
-                this.reset();
+        //         // Reset form
+        //         this.reset();
                 
-                // Reset button after delay
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = 'var(--primary)';
-                    submitBtn.disabled = false;
-                }, 3000);
-            }, 2000);
-        });
+        //         // Reset button after delay
+        //         setTimeout(() => {
+        //             submitBtn.textContent = originalText;
+        //             submitBtn.style.background = 'var(--primary)';
+        //             submitBtn.disabled = false;
+        //         }, 3000);
+        //     }, 2000);
+        // });
 
         // Enhanced card interactions
         document.querySelectorAll('.service-card, .platform-card, .team-member').forEach(card => {
