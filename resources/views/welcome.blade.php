@@ -175,7 +175,7 @@
             align-items: center;
             position: relative;
             background: var(--dark);
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 50%, rgba(45, 212, 191, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(8, 145, 178, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
@@ -1801,8 +1801,8 @@
         if (window.innerWidth <= 768) {
             document.querySelectorAll('.team-member').forEach(member => {
                 member.addEventListener('click', function() {
-                    this.style.transform = this.style.transform.includes('rotateY(180deg)') 
-                        ? 'rotateY(0deg)' 
+                    this.style.transform = this.style.transform.includes('rotateY(180deg)')
+                        ? 'rotateY(0deg)'
                         : 'rotateY(180deg)';
                 });
             });
@@ -1908,8 +1908,8 @@
             
             themeToggle.addEventListener('click', function() {
                 document.body.classList.toggle('light-theme');
-                this.innerHTML = document.body.classList.contains('light-theme') 
-                    ? '<i class="fas fa-sun"></i>' 
+                this.innerHTML = document.body.classList.contains('light-theme')
+                    ? '<i class="fas fa-sun"></i>'
                     : '<i class="fas fa-moon"></i>';
             });
             
