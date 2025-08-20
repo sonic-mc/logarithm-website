@@ -983,7 +983,7 @@
         }
 
         .footer-section ul li a {
-            color: var(--gray);
+            color: var(--gray-light);
             text-decoration: none;
             transition: all 0.3s ease;
         }
