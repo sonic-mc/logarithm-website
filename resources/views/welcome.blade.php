@@ -6,6 +6,8 @@
     <title>Logarithm Corporation - Innovating Zimbabwe's Digital Future</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="shortcut icon" href="{{ URL::asset('logo.png')}}">
+
+    
     <style>
         * {
             margin: 0;
