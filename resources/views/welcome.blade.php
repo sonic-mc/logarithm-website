@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logarithm Corporation - Innovating Zimbabwe's Digital Future</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="{{ URL::asset('logo.png')}}">
     <style>
         * {
             margin: 0;
@@ -29,6 +30,11 @@
             --african-red: #DC2626;
         }
 
+        html {
+    /* Base font size scales between 14px and 18px depending on viewport width */
+            font-size: clamp(14px, 1.2vw, 18px);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
             line-height: 1.6;
@@ -38,76 +44,76 @@
         }
 
         /* Top Bar */
-.top-bar {
-    background: var(--dark);
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(45, 212, 191, 0.1);
-    font-size: 0.85rem;
-    transition: all 0.3s ease;
-}
+        .top-bar {
+            background: var(--dark);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
 
-.top-bar-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .top-bar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.top-bar-info {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    color: var(--light);
-}
+        .top-bar-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            color: var(--light);
+        }
 
-.top-bar-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.top-bar-social {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+        .top-bar-social {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-.social-icon {
-    width: 32px;
-    height: 32px;
-    background: rgba(45, 212, 191, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(45, 212, 191, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
 
-.social-icon:hover {
-    background: var(--primary);
-    color: var(--dark);
-    transform: translateY(-2px);
-}
+        .social-icon:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .top-bar-info .top-bar-item {
-        display: none; /* Hide all info items by default */
-    }
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .top-bar-info .top-bar-item {
+                display: none; /* Hide all info items by default */
+            }
 
-    .top-bar-info .top-bar-item:first-child {
-        display: flex; /* Show only operating hours */
-    }
+            .top-bar-info .top-bar-item:first-child {
+                display: flex; /* Show only operating hours */
+            }
 
-    .top-bar-container {
-        padding: 0 1rem;
-    }
-}
+            .top-bar-container {
+                padding: 0 1rem;
+            }
+        }
 
         /* Navigation */
         nav {
@@ -138,11 +144,15 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -181,6 +191,136 @@
             background: var(--secondary);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(45, 212, 191, 0.3);
+        }
+
+        /* Mobile Toggle Button */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            background: rgba(45, 212, 191, 0.1);
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        /* Hamburger animation */
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+                position: relative;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: flex;
+                position: relative;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(45, 212, 191, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                max-height: 0;
+                overflow: hidden;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                max-height: 400px;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(45, 212, 191, 0.05);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1.2rem 2rem;
+                width: 100%;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background: rgba(45, 212, 191, 0.1);
+                color: var(--primary);
+            }
+
+            .nav-cta {
+                margin: 1rem;
+                border-radius: 8px;
+                text-align: center;
+                padding: 1rem 2rem;
+            }
+
+            .nav-cta:hover {
+                transform: none;
+                background: var(--secondary);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0.8rem;
+            }
+
+            .logo {
+                height: 40px;
+            }
+
+            .nav-links a {
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
         }
 
         /* Hero Section */
@@ -1106,7 +1246,7 @@
     <div class="top-bar-container">
       <div class="top-bar-info">
         <div class="top-bar-item">
-          <i class="far fa-clock"></i> Open Hours: Mon - Sat - 8:00 - 17:00
+          <i class="far fa-clock"></i> Open Hours: Mon - Fri - 8:00 - 17:00
         </div>
         <div class="top-bar-item">
           <i class="fas fa-phone"></i> +263 719 288 500
@@ -1123,36 +1263,81 @@
     </div>
   </div>
   
-  <!-- Navigation -->
-  <nav id="mainNav">
+ <!-- Navigation -->
+ <nav id="mainNav">
     <div class="nav-container">
-      <div class="logo">Logarithm</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#platforms">Platforms</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
-      </ul>
-    </div>
-  </nav>
+        <div class="logo">
+            <img src="{{ asset('logaa.png') }}" alt="Company Logo">
+        </div>
 
-  <script>
+        <!-- Mobile Toggle Button -->
+        <div class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#platforms">Platforms</a></li>
+            <li><a href="#team">Team</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<script>
+    const topBar = document.getElementById("topBar");
+    const nav = document.getElementById("mainNav");
+    const mobileToggle = document.getElementById("mobileToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    // Sticky navigation on scroll
     window.addEventListener("scroll", function () {
-      const topBar = document.getElementById("topBar");
-      const nav = document.getElementById("mainNav");
-    
-      if (window.scrollY > 80) {
-        topBar.style.display = "none"; // hide top bar
-        nav.classList.add("sticky");
-      } else {
-        topBar.style.display = "block"; // show top bar
-        nav.classList.remove("sticky");
-      }
+        if (window.scrollY > 80) {
+            topBar.style.display = "none";
+            nav.classList.add("sticky");
+        } else {
+            topBar.style.display = "block";
+            nav.classList.remove("sticky");
+        }
     });
-    </script>
-    
+
+    // Mobile menu toggle
+    mobileToggle.addEventListener("click", function() {
+        mobileToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", function() {
+            mobileToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", function(event) {
+        const isClickInsideNav = nav.contains(event.target);
+        if (!isClickInsideNav && navLinks.classList.contains("active")) {
+            mobileToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener("resize", function() {
+        if (window.innerWidth > 768) {
+            mobileToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+        }
+    });
+</script>
+
   
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1165,7 +1350,7 @@
             <div class="particle" style="left: 85%; width: 4px; height: 4px; animation-delay: 5s;"></div>
         </div>
         <div class="hero-content">
-            <div class="hero-badge">Zimbabwe Technology Company</div>
+            <div class="hero-badge">Logarithm Corporation (Pvt) ltd</div>
             <h1>Innovating Zimbabwe's Digital Future</h1>
             <p>At Logarithm (Pvt) Ltd, we deliver tailored IT solutions for businesses across industries, including SMS platforms, micro-insurance systems, HR tools, school management software, micro-finance platforms, and intelligent WhatsApp bots. Our solutions streamline operations, reduce costs, and boost productivity, helping you focus on core goals.</p>
             <div class="cta-buttons">
@@ -1401,7 +1586,7 @@
             <div class="team-header">
                 <div class="section-badge">Our Team</div>
                 <h2>Team of Experts</h2>
-                <p style="color: var(--dark-light);">Ethics and integrity are the bases on which our professionals build their careers. They are fundamentals that become daily attitudes.</p>
+                <p style="color: var(--dark-light);">Ethics and integrity are the bases on which our professionals build their careers. They are fundamentals that become daily attributes.</p>
             </div>
             <div class="team-grid">
                 <div class="team-member animate-on-scroll">
@@ -1412,7 +1597,9 @@
                     <div class="role">Managing Director</div>
                     <p>Leading innovation in Zimbabwe's tech industry with over a decade of experience in software development and business transformation.</p>
                     <div class="team-social">
-                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:flavian@logatech.co.zw" class="social-link" target="_blank">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                     </div>
@@ -1425,7 +1612,9 @@
                     <div class="role">Chief Technology Officer</div>
                     <p>Expert in system architecture and integration services, specializing in creating scalable solutions for enterprise clients across Southern Africa.</p>
                     <div class="team-social">
-                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:taka@logatech.co.zw" class="social-link" target="_blank">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                     </div>
@@ -1438,7 +1627,9 @@
                     <div class="role">Lead Developer</div>
                     <p>Full-stack developer with expertise in modern frameworks and technologies, passionate about creating user-centric applications that drive business growth.</p>
                     <div class="team-social">
-                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:marveloustchimusoro@gmail.com" class="social-link" target="_blank">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                     </div>
@@ -1447,14 +1638,23 @@
                     <div class="team-avatar">
                         <i class="fas fa-user"></i>
                     </div>
-                    <h3>Joshua T Muyengwa</h3>
+                    <h3>Takunda J Muyengwa</h3>
                     <div class="role">Mobile Developer</div>
                     <p>Specialist in mobile apps development and infrastructure management, ensuring our solutions are reliable, scalable, and performant in production environments.</p>
                     <div class="team-social">
-                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
+                        <!-- Email -->
+                        <a href="mailto:takundajmuyengwa@gmail.com" class="social-link" target="_blank">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/takunda-joshua-muyengwa" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <!-- GitHub -->
+                        <a href="https://github.com/" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -1600,17 +1800,21 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center; padding: 20px 0;">
             <p>&copy; <span id="currentYear"></span> Logarithm Corporation Private Limited. All rights reserved.</p>
-
-            <script>
-              document.getElementById('currentYear').textContent = new Date().getFullYear();
-            </script>
             
-            <div class="footer-quote">
-                "At least 40% of all businesses will die in the next 10 years… if they don't figure out how to change their entire company to accommodate new technologies"
+            <div style="text-align: center;">
+                <p>Website by Allyson Mc</p>
+                <a href="https://wa.me/263772131956" class="social-link" target="_blank" style="display: inline-block; margin-top: 5px;">
+                    <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                </a>
             </div>
         </div>
+        
+        <script>
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+        </script>
+        
     </footer>
 
     <script>
@@ -1701,34 +1905,7 @@
             statsObserver.observe(statsSection);
         }
 
-        // Form submission
-        // document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-        //     e.preventDefault();
-            
-        //     const submitBtn = this.querySelector('button[type="submit"]');
-        //     const originalText = submitBtn.textContent;
-            
-        //     // Show loading state
-        //     submitBtn.textContent = 'Sending...';
-        //     submitBtn.disabled = true;
-            
-        //     // Simulate form submission
-        //     setTimeout(() => {
-        //         submitBtn.textContent = 'Message Sent!';
-        //         submitBtn.style.background = 'var(--success)';
-                
-        //         // Reset form
-        //         this.reset();
-                
-        //         // Reset button after delay
-        //         setTimeout(() => {
-        //             submitBtn.textContent = originalText;
-        //             submitBtn.style.background = 'var(--primary)';
-        //             submitBtn.disabled = false;
-        //         }, 3000);
-        //     }, 2000);
-        // });
-
+       
         // Enhanced card interactions
         document.querySelectorAll('.service-card, .platform-card, .team-member').forEach(card => {
             card.addEventListener('mouseenter', function() {
@@ -1957,39 +2134,7 @@
             button.insertBefore(spinner, button.firstChild);
         }
 
-        // Theme switcher (optional enhancement)
-        function createThemeToggle() {
-            const themeToggle = document.createElement('button');
-            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            themeToggle.style.cssText = `
-                position: fixed;
-                bottom: 2rem;
-                right: 2rem;
-                width: 50px;
-                height: 50px;
-                background: var(--primary);
-                color: var(--dark);
-                border: none;
-                border-radius: 50%;
-                font-size: 1.2rem;
-                cursor: pointer;
-                z-index: 1000;
-                transition: all 0.3s ease;
-                box-shadow: 0 10px 25px rgba(45, 212, 191, 0.3);
-            `;
-            
-            themeToggle.addEventListener('click', function() {
-                document.body.classList.toggle('light-theme');
-                this.innerHTML = document.body.classList.contains('light-theme')
-                    ? '<i class="fas fa-sun"></i>'
-                    : '<i class="fas fa-moon"></i>';
-            });
-            
-            document.body.appendChild(themeToggle);
-        }
-
-        // Initialize theme toggle
-        createThemeToggle();
+      
 
         // Performance optimization: Lazy load images
         if ('IntersectionObserver' in window) {
